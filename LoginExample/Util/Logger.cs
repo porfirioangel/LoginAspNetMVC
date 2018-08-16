@@ -24,7 +24,11 @@ namespace LoginExample.Util
             using (StreamWriter sw = File.AppendText(path))
             {
                 sw.WriteLine(cabeceraLog);
-                sw.WriteLine(message.ToString());
+                
+                if (message == null)
+                    sw.WriteLine("null");
+                else
+                    sw.WriteLine(message.ToString());
             }
         }
     }

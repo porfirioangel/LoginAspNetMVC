@@ -91,7 +91,8 @@ namespace LoginExample.Controllers
             // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
 
-            Logger.WriteInfo(result);
+            returnUrl = returnUrl == null ? "/User" : returnUrl;
+            Logger.WriteInfo(returnUrl);
 
             switch (result)
             {
